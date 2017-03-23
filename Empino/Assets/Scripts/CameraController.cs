@@ -10,16 +10,17 @@ public class CameraController : MonoBehaviour
 
     private Vector3 targetPos;
 
-    // Use this for initialization
-    void Start()
+    public void InjectPlayer(GameObject target)
     {
-
+        _followTarget = target;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        targetPos = new Vector3(_followTarget.transform.position.x, _followTarget.transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, targetPos, _moveSpeed * Time.deltaTime);
+        if (_followTarget)
+        {
+            targetPos = new Vector3(_followTarget.transform.position.x, _followTarget.transform.position.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPos, _moveSpeed * Time.deltaTime);
+        }
     }
 }
