@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: 37b8dd3bbcad9cb429d9ea32be34c129
-timeCreated: 1490304105
+timeCreated: 1490454957
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: male_slash_0
+    21300002: male_slash_1
+    21300004: male_slash_2
+    21300006: male_slash_3
+    21300008: male_slash_4
+    21300010: male_slash_5
+    21300012: male_slash_6
+    21300014: male_slash_7
+    21300016: male_slash_8
+    21300018: male_slash_9
+    21300020: male_slash_10
+    21300022: male_slash_11
+    21300024: male_slash_12
+    21300026: male_slash_13
+    21300028: male_slash_14
+    21300030: male_slash_15
+    21300032: male_slash_16
+    21300034: male_slash_17
+    21300036: male_slash_18
+    21300038: male_slash_19
+    21300040: male_slash_20
+    21300042: male_slash_21
+    21300044: male_slash_22
+    21300046: male_slash_23
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -27,14 +51,14 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +82,329 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: male_slash_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 194
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 193
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 193
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_3
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 193
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 193
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_5
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 193
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 130
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 130
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_8
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_9
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 130
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 130
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_11
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 130
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 66
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_14
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 66
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_15
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 66
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 66
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_17
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 66
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_18
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 2
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_20
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_21
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 2
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_22
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 2
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: male_slash_23
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 2
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

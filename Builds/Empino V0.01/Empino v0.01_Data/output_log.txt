@@ -7,50 +7,41 @@ Direct3D:
     VRAM:     2029 MB
     Driver:   10.18.15.4268
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.145 seconds
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\GitRepos\Empino\Empino\Builds\Empino V0.01\Empino v0.01_Data\Managed\System.dll (this message is harmless)
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.051 seconds
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Shadow Zone\GithubRepository\Empini\Builds\Empino V0.01\Empino v0.01_Data\Managed\System.dll (this message is harmless)
+desktop: 1440x900 60Hz; virtual: 1440x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.713565 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.140440 ms
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 367.
-Total: 0.212737 ms (FindLiveObjects: 0.017728 ms CreateObjectMapping: 0.013995 ms MarkObjects: 0.168417 ms  DeleteObjects: 0.012596 ms)
-
-Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.
-Cannot open socket on ip {*} and port {7777}; check please your network, most probably port has been already occupied
- 
-(Filename:  Line: 488)
-
-StartServer listen failed.
+UnloadTime: 1.606729 ms
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:50273}
+ServerDisconnected due to error: Timeout
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.
-Cannot open socket on ip {*} and port {7777}; check please your network, most probably port has been already occupied
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:50727}
+ServerDisconnected due to error: Timeout
  
-(Filename:  Line: 488)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-StartServer listen failed.
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:62627}
+ServerDisconnected due to error: Timeout
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1b50 -> priority: 1 
-  Thread -> id: 6b0 -> priority: 1 
+  Thread -> id: 2ff0 -> priority: 1 
+  Thread -> id: 129c -> priority: 1 
