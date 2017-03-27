@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
 
-	// Use this for initialization
 	void Start () {
         Camera.main.GetComponent<CameraController>().InjectPlayer(gameObject);
         myRigidbody =  GetComponent<Rigidbody2D>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * _moveSpeed;
 	}
