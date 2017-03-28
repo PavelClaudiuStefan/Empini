@@ -12,7 +12,7 @@ public class PlayerNetworkIdentification : NetworkBehaviour {
 
         GetComponent<SpriteRenderer>().color = Color.yellow;
 
-        Network.InitializeServer(32, 25000, false);
-        Network.Connect("25.60.115.205", 25000);
+        //Network.InitializeServer(32, 25000, false);
+        //Network.Connect("25.60.115.205", 25000);
     }
 }
