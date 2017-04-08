@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
     private float closestResourceDistance;
 
     private GameObject[] trees;
     private GameObject closestResource;
 
-    void Start () {
-        
+    private PlayerStats playerStats;
+
+    void Start()
+    {
+        playerStats = GetComponent<PlayerStats>();
+
     }
-	
-	
 	void Update () {
  
         trees = GameObject.FindGameObjectsWithTag("Copac");
@@ -22,13 +23,16 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown("space") && closestResourceDistance < 0.6)
         {
-            //Debug.Log(closestResource);
-            Debug.Log(closestResourceDistance);
             Destroy(closestResource);
+            playerStats.GiveWood(5);
+
+            if (isServer)
+                RpcGetWood(closestResource);
+            else
+                CmdGetWood(closestResource);
         }
         
 	}
-
     GameObject GetClosestResource(GameObject[] resources)
     {
         GameObject tMin = null;
@@ -46,5 +50,21 @@ public class PlayerController : MonoBehaviour {
         return tMin;
     }
 
+    [Command]
+    void CmdGetWood(GameObject tree)
+    {
+        playerStats.GiveWood(5);
+        Destroy(closestResource);
+    }
+
+    [ClientRpc]
+    void RpcGetWood(GameObject tree)
+    {
+        if (!isServer)
+        {
+            playerStats.GiveWood(5);
+            Destroy(closestResource);
+        }
+    }
 
 }

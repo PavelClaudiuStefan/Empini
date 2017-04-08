@@ -3,10 +3,11 @@ using UnityEngine.Networking;
 
 public class PlayerStats : NetworkBehaviour {
 
-    [SyncVar]
-    int playerHp = 100;
+    public int playerHp = 100;
 
     public TextMesh hpBar;
+
+    private PlayerInventory playerInventory;
 
     public int PlayerHp
     {
@@ -18,22 +19,30 @@ public class PlayerStats : NetworkBehaviour {
             if (isLocalPlayer)
                 EventManager.instance.Raise(new SetHpUiEvent(playerHp));
         }
-
     }
+
+
+    public void GiveWood(int wood)
+    {
+        playerInventory.AddWood(wood);
+    }
+    public void GetWood(int wood)
+    {
+        playerInventory.ExtractWood(wood);
+    }
+
+    void Start()
+    {
+        playerInventory = new PlayerInventory();
+    }  
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Bullet")
         {
             PlayerHp--;
-            CmdDestroyBullet(col.gameObject);
+            Destroy(col.gameObject);
         }
-    }
-
-    [Command]
-    void CmdDestroyBullet(GameObject bullet)
-    {
-        NetworkServer.Destroy(bullet);
     }
 
 }
