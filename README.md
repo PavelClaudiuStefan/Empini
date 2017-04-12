@@ -1,2 +1,2 @@
-# Empino
+# Empini
 2D game
