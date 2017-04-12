@@ -8,9 +8,10 @@ public class PlayerController : MonoBehaviour {
 
     private GameObject[] trees;
     private GameObject closestResource;
+    private List<GameObject> models;
 
     void Start () {
-        
+
     }
 	
 	
