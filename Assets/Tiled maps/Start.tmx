@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="20" tilewidth="32" tileheight="32" backgroundcolor="#55aaff" nextobjectid="1">
+ <tileset firstgid="1" name="first" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../../../hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="second" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../../../hyptosis_til-art-batch-2.png" width="960" height="960"/>
+  <terraintypes>
+   <terrain name="Watter" tile="212"/>
+   <terrain name="Grass" tile="841"/>
+   <terrain name="New Terrain" tile="841"/>
+   <terrain name="Grass" tile="841"/>
+  </terraintypes>
+  <tile id="212" terrain="0,0,0,0"/>
+  <tile id="810" terrain=",,,3"/>
+  <tile id="811" terrain=",,3,3"/>
+  <tile id="812" terrain=",,3,"/>
+  <tile id="840" terrain=",3,,3"/>
+  <tile id="841" terrain="3,3,3,3"/>
+  <tile id="842" terrain="3,,3,"/>
+  <tile id="870" terrain=",3,,"/>
+  <tile id="871" terrain="3,3,,"/>
+  <tile id="872" terrain="3,,,"/>
+ </tileset>
+ <tileset firstgid="1801" name="third" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../../../hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="fourth" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../../../hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <layer name="First" width="16" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzbwcTAsJNMvAuIrwGxITPDAnLwDST9W4H0NiLxdqgeZP2XgfQVIvHVUf3DTv9HIP2JSPwZUz8Yb0NiE4OR9e9iwe1eazQ5kFps+knBpOp/zQTB5Oqn1H5C+snBIP1fgPgrmfgbEAMAAPPvmA==
+  </data>
+ </layer>
+ <layer name="Second" width="16" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUUAq2MjEwXMGCtyFhGH87E6b+yzj0Y8NXB6H+j0CxT0Tiz1j0DxQAAJpkMt0=
+  </data>
+ </layer>
+ <layer name="third" width="16" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkY8JInBwN+eNTgkxvqwJCZNIwOtjIxMGwjEm9nwtR/GSh2BYg92CA0NuwJlbuKRT8IgPTysEHYc4H0PCieD9WXzgYxAxfQBsrxQuVvAulbUHwbqh9kthYe/TAzsAGQfkJ6hyIAAKW2H88=
+  </data>
+ </layer>
+</map>
