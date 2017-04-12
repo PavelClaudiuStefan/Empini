@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiled2Unity\Imported\Narnia.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\Imported\NewMap2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Sandbox.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Skyrim.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
