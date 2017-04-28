@@ -7,8 +7,6 @@ public class PlayerStats : NetworkBehaviour {
 
     public TextMesh hpBar;
 
-    private PlayerInventory playerInventory;
-
     public int PlayerHp
     {
         get { return playerHp; }
@@ -18,31 +16,36 @@ public class PlayerStats : NetworkBehaviour {
             hpBar.text = playerHp.ToString();
             if (isLocalPlayer)
                 EventManager.instance.Raise(new SetHpUiEvent(playerHp));
+
+            if (isServer)
+                RpcPlayerHp(value);
+            else
+                CmdPlayerHp(value);
         }
     }
-
-
-    public void GiveWood(int wood)
+   
+    [Command]
+    void CmdPlayerHp(int value)
     {
-        playerInventory.AddWood(wood);
+        playerHp = value;
+        hpBar.text = playerHp.ToString();
+        if (isLocalPlayer)
+            EventManager.instance.Raise(new SetHpUiEvent(playerHp));
+
+        RpcPlayerHp(value);
     }
-    public void GetWood(int wood)
-    {
-        playerInventory.ExtractWood(wood);
-    }
 
-    void Start()
+    [ClientRpc]
+    void RpcPlayerHp(int value)
     {
-        playerInventory = new PlayerInventory();
-    }  
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Bullet")
+        if(!isServer)
         {
-            PlayerHp--;
-            Destroy(col.gameObject);
+            playerHp = value;
+            hpBar.text = playerHp.ToString();
+            if (isLocalPlayer)
+                EventManager.instance.Raise(new SetHpUiEvent(playerHp));
         }
     }
+
 
 }

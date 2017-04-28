@@ -5,14 +5,16 @@ using UnityEngine.Networking;
 
 public class PlayerNetworkIdentification : NetworkBehaviour {
 
+    public PlayerController playerController;
+
     public override void OnStartLocalPlayer()
     {
-        GetComponent<PlayerMovement>().enabled = true;
-        GetComponent<TestProjectile>().enabled = true;
+        playerController.Init();
 
         GetComponent<SpriteRenderer>().color = Color.yellow;
 
         //Network.InitializeServer(32, 25000, false);
         //Network.Connect("25.60.115.205", 25000);
+
     }
 }

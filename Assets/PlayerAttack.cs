@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Networking;
 
-public class TestProjectile : NetworkBehaviour
-{
+public class PlayerAttack : NetworkBehaviour {
+
     public GameObject roundSendPoint;
 
     public Transform sendPoint;
@@ -10,6 +12,9 @@ public class TestProjectile : NetworkBehaviour
     public GameObject projectile;
 
     public float projectileSpeed;
+
+
+    private float unicCode;
 
     void Update()
     {
@@ -21,9 +26,13 @@ public class TestProjectile : NetworkBehaviour
             Shot(mousePos, sendPoint.position);
 
             if (isServer)
-                RpcShot(mousePos, sendPoint.position);
+                RpcShot(mousePos, sendPoint.position, -1);
             else
-                CmdShot(mousePos, sendPoint.position);
+            {
+                unicCode = Random.Range(0f, 1f);
+
+                CmdShot(mousePos, sendPoint.position , unicCode);
+            }
         }
 
         float rotationZ = Mathf.Atan2((mousePos - transform.position).y, (mousePos - transform.position).x) * Mathf.Rad2Deg;
@@ -40,7 +49,7 @@ public class TestProjectile : NetworkBehaviour
     }
 
     [Command]
-    void CmdShot(Vector3 mousePos, Vector3 sendPoint)
+    void CmdShot(Vector3 mousePos, Vector3 sendPoint , float unicCode)
     {
         Vector3 dir = (mousePos - transform.position).normalized;
         GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
@@ -48,12 +57,13 @@ public class TestProjectile : NetworkBehaviour
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
         GameObject.Destroy(bullet, 2);
 
+        RpcShot(mousePos, sendPoint , unicCode);
     }
 
     [ClientRpc]
-    void RpcShot(Vector3 mousePos, Vector3 sendPoint)
+    void RpcShot(Vector3 mousePos, Vector3 sendPoint, float unicCode)
     {
-        if (!isServer)
+        if (!isServer && unicCode != this.unicCode)
         {
             Vector3 dir = (mousePos - transform.position).normalized;
             GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
