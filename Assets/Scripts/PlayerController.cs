@@ -8,6 +8,11 @@ public class PlayerController : NetworkBehaviour {
     public PlayerAttack playerAttack;
     public PlayerReceive playerReceive;
 
+	private Animator anim;
+
+	private bool playerMoving;
+	private Vector2 lastMove;
+
     public void Init()
     {
         playerMovement.enabled = true;
@@ -18,11 +23,21 @@ public class PlayerController : NetworkBehaviour {
 
     void Start()
     {
-
+		anim = GetComponent<Animator> ();
     }
 
 	void Update () {
-        
+		playerMoving = false;
+		if (Input.GetAxisRaw ("Horizontal") != 0 || Input.GetAxisRaw ("Vertical") != 0) {
+			playerMoving = true;
+			lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		}
+
+		anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
+		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
+		anim.SetBool ("PlayerMoving", playerMoving);
+		anim.SetFloat ("LastMoveX", lastMove.x);
+		anim.SetFloat ("LastMoveY", lastMove.y);
 	}
 
 }
