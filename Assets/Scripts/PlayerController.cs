@@ -15,10 +15,13 @@ public class PlayerController : NetworkBehaviour {
 
     public void Init()
     {
-        playerMovement.enabled = true;
+        if(isLocalPlayer)
+            playerMovement.enabled = true;
+
         playerAttack.enabled = true;
 
         playerReceive.Init(playerStats);
+        playerAttack.Init(playerStats);
     }
 
     void Start()
@@ -32,18 +35,23 @@ public class PlayerController : NetworkBehaviour {
 		{
 			return;
 		}
-		/*
-		SetAnim ();
 
-		if (isServer)
-			RpcSetAnim ();
-		else
-		{
-			CmdSetAnim ();
-		}
-		*/
-		CmdSetAnim ();
-	}
+      
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            playerStats.BulletSpeed++;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            playerStats.BulletDamage++;
+
+        SetAnim();
+
+        if (isServer)
+            RpcSetAnim();
+        else
+            CmdSetAnim();
+    }
 
 	void SetAnim()
 	{
@@ -73,7 +81,7 @@ public class PlayerController : NetworkBehaviour {
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
-		//RpcSetAnim ();
+		RpcSetAnim ();
 	}
 
 	[ClientRpc]

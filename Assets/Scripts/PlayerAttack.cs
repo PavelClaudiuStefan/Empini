@@ -6,18 +6,25 @@ using UnityEngine.Networking;
 public class PlayerAttack : NetworkBehaviour {
 
     public GameObject roundSendPoint;
-
     public Transform sendPoint;
-
     public GameObject projectile;
 
-    public float projectileSpeed;
+    private PlayerStats playerStats;
 
 
     private float unicCode;
 
+    public void Init(PlayerStats playerStats)
+    {
+        this.playerStats = playerStats;
+        Debug.Log(playerStats);
+    }
+
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
@@ -43,7 +50,10 @@ public class PlayerAttack : NetworkBehaviour {
     {
         Vector3 dir = (mousePos - transform.position).normalized;
         GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
-        bullet.GetComponent<Rigidbody2D>().velocity = dir * projectileSpeed;
+
+        bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
+        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
         GameObject.Destroy(bullet, 2);
     }
@@ -53,7 +63,10 @@ public class PlayerAttack : NetworkBehaviour {
     {
         Vector3 dir = (mousePos - transform.position).normalized;
         GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
-        bullet.GetComponent<Rigidbody2D>().velocity = dir * projectileSpeed;
+
+        bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
+        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
         GameObject.Destroy(bullet, 2);
 
@@ -67,7 +80,10 @@ public class PlayerAttack : NetworkBehaviour {
         {
             Vector3 dir = (mousePos - transform.position).normalized;
             GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
-            bullet.GetComponent<Rigidbody2D>().velocity = dir * projectileSpeed;
+
+            bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
+            bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+
             Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
             GameObject.Destroy(bullet, 2);
         }

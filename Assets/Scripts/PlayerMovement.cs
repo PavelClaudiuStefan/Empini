@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D myRigidbody;
 
 	void Start () {
+        
         Camera.main.GetComponent<CameraController>().InjectPlayer(gameObject);
         myRigidbody =  GetComponent<Rigidbody2D>();
 	}

@@ -17,14 +17,11 @@ public class PlayerReceive : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
             if (enabled)
-                   playerStats.PlayerHp--;
+            {
+                playerStats.PlayerHp -= col.gameObject.GetComponent<ProjectileStats>().damage;
+            }
             Destroy(col.gameObject);
         }
         
-    }
-
-    void Update()
-    {
-
     }
 }

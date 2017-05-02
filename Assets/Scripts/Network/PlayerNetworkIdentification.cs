@@ -7,7 +7,11 @@ public class PlayerNetworkIdentification : NetworkBehaviour {
 
     public PlayerController playerController;
 
-    public override void OnStartLocalPlayer()
+    void Start()
+    {
+        playerController.Init();
+    }
+   /* public override void OnStartLocalPlayer()
     {
         playerController.Init();
 
@@ -16,5 +20,5 @@ public class PlayerNetworkIdentification : NetworkBehaviour {
         //Network.InitializeServer(32, 25000, false);
         //Network.Connect("25.60.115.205", 25000);
 
-    }
+    }*/
 }
