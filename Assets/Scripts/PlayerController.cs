@@ -8,10 +8,7 @@ public class PlayerController : NetworkBehaviour {
     public PlayerAttack playerAttack;
     public PlayerReceive playerReceive;
 
-	private Animator anim;
-
-	private bool playerMoving;
-	private Vector2 lastMove;
+	
 
     public void Init()
     {
@@ -29,7 +26,7 @@ public class PlayerController : NetworkBehaviour {
 
     void Start()
     {
-		anim = GetComponent<Animator> ();
+		
     }
 
 	void Update () {
@@ -48,63 +45,6 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha4))
             playerStats.HealthRegen++;
         if (Input.GetKeyDown(KeyCode.Alpha5))
-            playerStats.MovementSpeed++;
-
-        /*SetAnim();
-
-        if (isServer)
-            RpcSetAnim();
-        else
-            CmdSetAnim();*/
+            playerStats.MovementSpeed++;   
     }
-
-	void SetAnim()
-	{
-		playerMoving = false;
-		if (Input.GetAxisRaw ("Horizontal") != 0 || Input.GetAxisRaw ("Vertical") != 0) {
-			playerMoving = true;
-			lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		}
-		anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
-		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
-		anim.SetBool ("PlayerMoving", playerMoving);
-		anim.SetFloat ("LastMoveX", lastMove.x);
-		anim.SetFloat ("LastMoveY", lastMove.y);
-	}
-
-	[Command]
-	void CmdSetAnim()
-	{
-		playerMoving = false;
-		if (Input.GetAxisRaw ("Horizontal") != 0 || Input.GetAxisRaw ("Vertical") != 0) {
-			playerMoving = true;
-			lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		}
-		anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
-		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
-		anim.SetBool ("PlayerMoving", playerMoving);
-		anim.SetFloat ("LastMoveX", lastMove.x);
-		anim.SetFloat ("LastMoveY", lastMove.y);
-
-		RpcSetAnim ();
-	}
-
-	[ClientRpc]
-	void RpcSetAnim()
-	{
-		if (!isServer)
-		{
-			playerMoving = false;
-			if (Input.GetAxisRaw ("Horizontal") != 0 || Input.GetAxisRaw ("Vertical") != 0) {
-				playerMoving = true;
-				lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-			}
-			anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
-			anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
-			anim.SetBool ("PlayerMoving", playerMoving);
-			anim.SetFloat ("LastMoveX", lastMove.x);
-			anim.SetFloat ("LastMoveY", lastMove.y);
-		}
-	}
-
 }
