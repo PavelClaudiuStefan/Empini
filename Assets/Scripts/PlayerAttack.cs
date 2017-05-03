@@ -17,7 +17,6 @@ public class PlayerAttack : NetworkBehaviour {
     public void Init(PlayerStats playerStats)
     {
         this.playerStats = playerStats;
-        Debug.Log(playerStats);
     }
 
     void Update()

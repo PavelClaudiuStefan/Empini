@@ -8,13 +8,29 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
 
+    private PlayerStats playerStats;
+
 	void Start () {
         
         Camera.main.GetComponent<CameraController>().InjectPlayer(gameObject);
         myRigidbody =  GetComponent<Rigidbody2D>();
 	}
-	
+
+    public void Init(PlayerStats playerStats)
+    {
+        this.playerStats = playerStats;
+
+    }
+
 	void Update () {
-        myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * _moveSpeed;
-	}
+
+        if (playerStats != null)
+            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * playerStats.MovementSpeed;
+        else
+        {
+            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 4;
+            Debug.Log("PlayerStats is null from PlayerController !!! "); // In caz de ceva probleme 
+        }
+
+    }
 }

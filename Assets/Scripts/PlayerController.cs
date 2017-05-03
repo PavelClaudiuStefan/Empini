@@ -15,8 +15,11 @@ public class PlayerController : NetworkBehaviour {
 
     public void Init()
     {
-        if(isLocalPlayer)
+        if (isLocalPlayer)
+        {
             playerMovement.enabled = true;
+            playerMovement.Init(playerStats);
+        }
 
         playerAttack.enabled = true;
 
@@ -36,21 +39,23 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		}
 
-      
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
             playerStats.BulletSpeed++;
-        }
         if (Input.GetKeyDown(KeyCode.Alpha2))
             playerStats.BulletDamage++;
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            playerStats.MaxHealthIncreas();
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            playerStats.HealthRegen++;
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            playerStats.MovementSpeed++;
 
-        SetAnim();
+        /*SetAnim();
 
         if (isServer)
             RpcSetAnim();
         else
-            CmdSetAnim();
+            CmdSetAnim();*/
     }
 
 	void SetAnim()
