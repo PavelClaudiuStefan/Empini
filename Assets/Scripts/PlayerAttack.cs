@@ -9,6 +9,8 @@ public class PlayerAttack : NetworkBehaviour {
     public Transform sendPoint;
     public GameObject projectile;
 
+    public AudioClip myAudio;
+
     private PlayerStats playerStats;
 
 
@@ -54,6 +56,9 @@ public class PlayerAttack : NetworkBehaviour {
         bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
 
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
+
+        AudioSource.PlayClipAtPoint(myAudio, transform.position);
+
         GameObject.Destroy(bullet, 2);
     }
 
@@ -70,6 +75,8 @@ public class PlayerAttack : NetworkBehaviour {
         GameObject.Destroy(bullet, 2);
 
         RpcShot(mousePos, sendPoint , unicCode);
+
+        AudioSource.PlayClipAtPoint(myAudio, transform.position);
     }
 
     [ClientRpc]
@@ -85,6 +92,8 @@ public class PlayerAttack : NetworkBehaviour {
 
             Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
             GameObject.Destroy(bullet, 2);
+
+            AudioSource.PlayClipAtPoint(myAudio, transform.position);
         }
     }
 }
