@@ -10,6 +10,7 @@ using System.Collections.Generic;
 public class PlayerStats : NetworkBehaviour {
 
     public TextMesh hpBar;
+    public TextMesh xpBar;
 
     public int _healthIncreas = 10; // 10 hp per point
     public int _maxPoints = 1000; // 6 points per stat
@@ -22,6 +23,7 @@ public class PlayerStats : NetworkBehaviour {
     private int maxHealth = 100;
     private int healthRegen = 1; // 1 regen per second
     private int movementSpeed = 4;
+    private int playerXp = 0;
 
     private int[] pointsPerStats;
     private Dictionary<string, int> pointsPerStat;
@@ -64,17 +66,32 @@ public class PlayerStats : NetworkBehaviour {
         {
             playerHp = value;
 
+            bool toSend = true;
+
             if (playerHp > maxHealth)
+            {
                 playerHp = maxHealth;
+                toSend = false;
+            }
 
             hpBar.text = playerHp.ToString();
+
             if (isLocalPlayer)
                 EventManager.instance.Raise(new SetHpUiEvent(playerHp));
-
-            if (isServer)
-                RpcPlayerHp(value);
+            if (toSend)
+            {
+                if (isServer)
+                    RpcPlayerHp(value);
+                else
+                    CmdPlayerHp(value);
+            }
             else
-                CmdPlayerHp(value);
+            {
+                if (isServer)
+                    RpcPlayerHp(maxHealth);
+                else
+                    CmdPlayerHp(maxHealth);
+            }
         }
     }
     public float BulletSpeed
@@ -166,6 +183,20 @@ public class PlayerStats : NetworkBehaviour {
                 else
                     CmdMovementSpeed(value);
             }
+        }
+    }
+    public int PlayerXp {
+        get { return playerXp; }
+        set
+        {
+            playerXp = value;
+
+            xpBar.text = playerXp.ToString();
+
+            if (isServer)
+                RpcPlayerXp(value);
+            else
+                CmdPlayerXp(value);
         }
     }
     #endregion
@@ -284,6 +315,27 @@ public class PlayerStats : NetworkBehaviour {
         if (!isServer)
             movementSpeed = value;
     }
+
+    [Command]
+    void CmdPlayerXp(int value)
+    {
+        playerXp = value;
+
+        xpBar.text = playerXp.ToString();
+
+        RpcPlayerXp(value);
+    }
+    [ClientRpc]
+    void RpcPlayerXp(int value)
+    {
+        if (!isServer)
+        {
+            playerXp = value;
+
+            xpBar.text = playerXp.ToString();
+        }
+    }
+
     #endregion
 
     IEnumerator HealthTick()

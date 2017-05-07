@@ -9,16 +9,8 @@ public class PlayerNetworkIdentification : NetworkBehaviour {
 
     void Start()
     {
+        EventManager.instance.Raise(new RegisterPlayer());
         playerController.Init();
     }
-   /* public override void OnStartLocalPlayer()
-    {
-        playerController.Init();
 
-        //GetComponent<SpriteRenderer>().color = Color.yellow;
-
-        //Network.InitializeServer(32, 25000, false);
-        //Network.Connect("25.60.115.205", 25000);
-
-    }*/
 }

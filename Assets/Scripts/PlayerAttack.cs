@@ -53,7 +53,8 @@ public class PlayerAttack : NetworkBehaviour {
         GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
 
         bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
-        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+
+        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage, playerStats);
 
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
 
@@ -69,7 +70,7 @@ public class PlayerAttack : NetworkBehaviour {
         GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
 
         bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
-        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+        bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage,playerStats);
 
         Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
         GameObject.Destroy(bullet, 2);
@@ -88,7 +89,7 @@ public class PlayerAttack : NetworkBehaviour {
             GameObject bullet = Instantiate(projectile, sendPoint, Quaternion.Euler(Vector3.zero));
 
             bullet.GetComponent<Rigidbody2D>().velocity = dir * playerStats.BulletSpeed;
-            bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage);
+            bullet.GetComponent<ProjectileStats>().Init(playerStats.BulletDamage, playerStats);
 
             Physics2D.IgnoreCollision(bullet.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
             GameObject.Destroy(bullet, 2);
