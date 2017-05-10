@@ -8,6 +8,8 @@ public class RegisterPlayer : GameEvent{
 
 public class RoundStarter : NetworkBehaviour
 {
+    public int playerToBe;
+
     private int players;
 
     public bool ready;
@@ -19,6 +21,7 @@ public class RoundStarter : NetworkBehaviour
             EventManager.instance.AddListener<RegisterPlayer>(RegisterPlayer);
             StartCoroutine(WaitForPlayers());
         }
+
     }
     void RegisterPlayer(RegisterPlayer e)
     {
@@ -27,7 +30,7 @@ public class RoundStarter : NetworkBehaviour
 
     IEnumerator WaitForPlayers()
     {
-        while (players < 2)
+        while (players < playerToBe)
             yield return null;
 
         ready = true;

@@ -9,7 +9,6 @@ public abstract class SpawnableObject : MonoBehaviour {
     public int hp;
     public int xp;
     public EnemysSpawner manager;
-
     public float id;
     public int zone;
 
@@ -19,9 +18,6 @@ public abstract class SpawnableObject : MonoBehaviour {
         this.id = id;
         this.zone = zone;
     }
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        manager.ObjectHitted(col, this);
-    }
+    public abstract void OnCollisionEnter2D(Collision2D col);
 
 }

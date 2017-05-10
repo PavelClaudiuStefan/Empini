@@ -10,14 +10,25 @@ public class EnemysSpawner : NetworkBehaviour {
     [Serializable]
     public class SpawnZone
     {
-        public float minX;
-        public float maxX;
-        public float minY;
-        public float maxY;
+        public Zone zone;
+        public SpawnableObject target;
+
+        float minX;
+        float maxX;
+        float minY;
+        float maxY;
 
         public int maxObjects;
 
         private List<SpawnableObject> objects = new List<SpawnableObject>();
+
+        public void Init()
+        {
+            minX = zone.minX;
+            minY = zone.minY;
+            maxX = zone.maxX;
+            maxY = zone.maxY;
+        }
 
         public bool Check()
         {
@@ -39,6 +50,8 @@ public class EnemysSpawner : NetworkBehaviour {
 
             if (e is Crate)
                 manager.RpcSpawnObject(pos, 1, id, zone);
+            if (e is Enemy)
+                manager.RpcSpawnObject(pos, 2, id, zone);
         }
 
         Vector3 RandomPoint()
@@ -71,15 +84,25 @@ public class EnemysSpawner : NetworkBehaviour {
 
     public RoundStarter roundStarter;
 
-    public Crate crateTarget;
+    //public Crate crateTarget;
+    //public Enemy enemyTarget;
 
     public SpawnZone[] cratesZones;
     public SpawnZone[] mobZones;
 
     private List<SpawnableObject> objectsClient = new List<SpawnableObject>();
 
+    private List<SpawnableObject> objectsClientCrates = new List<SpawnableObject>();
+    private List<SpawnableObject> objectsClientMobs = new List<SpawnableObject>();
+
+
     void Start()
     {
+        foreach (var z in cratesZones)
+            objectsClientCrates.Add(z.target);
+        foreach (var z in mobZones)
+            objectsClientMobs.Add(z.target);
+
         if (isServer)
             StartCoroutine(WaitForRoundStart());
     }
@@ -89,8 +112,13 @@ public class EnemysSpawner : NetworkBehaviour {
         while (!roundStarter.ready)
             yield return null;
 
+        foreach (var z in cratesZones)
+            z.Init();
+        foreach (var z in mobZones)
+            z.Init();
+
         StartCoroutine(SpawnCrates());
-       // StartCoroutine(SpawnMobs());
+        StartCoroutine(SpawnMobs());
 
     }
 
@@ -101,8 +129,8 @@ public class EnemysSpawner : NetworkBehaviour {
             yield return new WaitForSeconds(5);
             for (int i = 0; i < cratesZones.Length; i++)
             {
-                if(cratesZones[i].Check())
-                    cratesZones[i].SpawnObject(transform, this, crateTarget,i);
+                if (cratesZones[i].Check())
+                    cratesZones[i].SpawnObject(transform, this, cratesZones[i].target, i);//crateTarget, i);
             }
         }
     }
@@ -111,22 +139,34 @@ public class EnemysSpawner : NetworkBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(1);
-
+            for (int i = 0; i < mobZones.Length; i++)
+            {
+                if (mobZones[i].Check())
+                    mobZones[i].SpawnObject(transform, this, mobZones[i].target, i);//enemyTarget, i);
+            }
         }
     }
 
     [ClientRpc]
-    void RpcSpawnObject(Vector3 pos,int type,float id,int zone) // 0 - Crate 1 - Mob
+    void RpcSpawnObject(Vector3 pos,int type,float id,int zone) // 1 - Crate 2 - Mob
     {
         if(!isServer)
         {
-            if(type == 1)
+            if (type == 1)
             {
-                GameObject temp = Instantiate(crateTarget.gameObject, transform);
+                GameObject temp = Instantiate(objectsClientCrates[zone].gameObject, transform);
                 temp.transform.position = pos;
                 temp.GetComponent<SpawnableObject>().Init(this, id, zone);
                 objectsClient.Add(temp.GetComponent<SpawnableObject>());
             }
+            if(type == 2)
+            {
+                GameObject temp = Instantiate(objectsClientMobs[zone].gameObject, transform);
+                temp.transform.position = pos;
+                temp.GetComponent<SpawnableObject>().Init(this, id, zone);
+                objectsClient.Add(temp.GetComponent<SpawnableObject>());
+            }
+
         }
     }
 
@@ -142,7 +182,11 @@ public class EnemysSpawner : NetworkBehaviour {
                 if (obj.hp <= 0)
                 {
                     col.gameObject.GetComponent<ProjectileStats>().playerStats.PlayerXp += obj.xp;
-                    cratesZones[obj.zone].Clear(obj.id);
+
+                    if(obj is Crate)
+                        cratesZones[obj.zone].Clear(obj.id);
+                    if (obj is Enemy)
+                        mobZones[obj.zone].Clear(obj.id);
                 }
 
                 Destroy(col.gameObject);
