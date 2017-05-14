@@ -129,5 +129,5 @@ public class PlayerAttack : NetworkBehaviour {
                 Debug.Log("BulletDamage out of bounds. Change the tiers in PlayerAttack.cs!");
                 break;
         }
-    } 
+    }
 }
