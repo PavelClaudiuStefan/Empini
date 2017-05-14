@@ -121,8 +121,12 @@ public class PlayerStats : NetworkBehaviour {
             {
                 CurrentPoints--;
                 pointsPerStat["BulletDamage"]++;
-
+         
                 bulletDamage = value;
+
+                //Update the sprite and scale of the projectile depending on the bulletDamage value;
+                GetComponent<PlayerAttack>().updateProjectileSprite(bulletDamage);
+                Debug.Log("Bullet dmg: " + bulletDamage);
 
                 if (isServer)
                     RpcBulletDamage(value);
@@ -346,5 +350,7 @@ public class PlayerStats : NetworkBehaviour {
             PlayerHp += HealthRegen;
         }
     }
+
+
     
 }
