@@ -16,11 +16,17 @@ public class Enemy : SpawnableObject
 
     bool notYet;
 
+    //For animation
+    private Animator anim;
+    bool entityMoving;
+    Vector2 lastMove;
+
     Coroutine currentNotYet;
 
     void Start()
     {
         StartCoroutine(GenerateRot());
+        anim = GetComponent<Animator>();
     }
     IEnumerator GenerateRot()
     {
@@ -57,6 +63,10 @@ public class Enemy : SpawnableObject
 
         transform.position += toPos * Time.deltaTime * speed/100;
 
+        //Debug.Log("X: " + toPos.x + "  Y: " + toPos.y);
+        //Animation : using toPos.x and toPos.y
+        AnimateEntity(toPos.x, toPos.y);
+
     }
 
     public override void OnCollisionEnter2D(Collision2D col)
@@ -70,6 +80,9 @@ public class Enemy : SpawnableObject
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (!isLocalPlayer)
+            return;
+
         if(!onPlayer && col.tag == "Player")
         {
             onPlayer = true;
@@ -107,5 +120,24 @@ public class Enemy : SpawnableObject
         {
             onPlayer = false;
         }
+    }
+    
+    void AnimateEntity(float x, float y)
+    {
+        //if (!isLocalPlayer)
+        //    return;
+
+        entityMoving = false;
+
+        if (x != 0 || y != 0)
+        {
+            entityMoving = true;
+            lastMove = new Vector2(x, y);
+        }
+        anim.SetFloat("MoveX", x);
+        anim.SetFloat("MoveY", y);
+        anim.SetBool("PlayerMoving", entityMoving);
+        anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);
     }
 }

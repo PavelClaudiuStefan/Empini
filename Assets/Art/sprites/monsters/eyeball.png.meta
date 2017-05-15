@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0980a78e4715239429d4fd2ff9366f88
-timeCreated: 1494442897
+timeCreated: 1494826603
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -48,7 +48,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -102,10 +102,10 @@ TextureImporter:
       name: eyeball_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 120
-        width: 26
-        height: 30
+        x: 0
+        y: 114
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +115,10 @@ TextureImporter:
       name: eyeball_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 122
-        width: 28
-        height: 29
+        x: 32
+        y: 114
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,9 +129,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 122
+        y: 114
         width: 32
-        height: 30
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: eyeball_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 114
-        width: 16
-        height: 5
+        x: 0
+        y: 76
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: eyeball_4
       rect:
         serializedVersion: 2
-        x: 41
-        y: 114
-        width: 14
-        height: 5
+        x: 32
+        y: 76
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,9 +168,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 84
+        y: 76
         width: 32
-        height: 35
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: eyeball_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 82
-        width: 26
-        height: 30
+        x: 0
+        y: 38
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: eyeball_7
       rect:
         serializedVersion: 2
-        x: 34
-        y: 84
-        width: 28
-        height: 29
+        x: 32
+        y: 38
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: eyeball_8
       rect:
         serializedVersion: 2
-        x: 8
-        y: 76
-        width: 16
-        height: 5
+        x: 64
+        y: 38
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: eyeball_9
       rect:
         serializedVersion: 2
-        x: 41
-        y: 77
-        width: 14
-        height: 5
+        x: 0
+        y: 0
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: eyeball_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 46
+        x: 32
+        y: 0
         width: 32
-        height: 35
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,127 +245,10 @@ TextureImporter:
       name: eyeball_11
       rect:
         serializedVersion: 2
-        x: 3
-        y: 44
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_12
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 46
-        width: 28
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_13
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 38
-        width: 16
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_14
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 38
-        width: 14
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_15
-      rect:
-        serializedVersion: 2
         x: 64
-        y: 8
+        y: 0
         width: 32
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_16
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 6
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_17
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 8
-        width: 28
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_18
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 16
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_19
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 1
-        width: 14
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: eyeball_20
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 0
-        width: 12
-        height: 5
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

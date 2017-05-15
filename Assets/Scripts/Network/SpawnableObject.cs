@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public abstract class SpawnableObject : MonoBehaviour {
+public abstract class SpawnableObject : NetworkBehaviour {
     public HpBar bar;
 
     public int maxHp;
