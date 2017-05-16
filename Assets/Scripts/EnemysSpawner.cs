@@ -42,7 +42,7 @@ public class EnemysSpawner : NetworkBehaviour {
         {
        
             float id = UnityEngine.Random.Range(0.0f, 100000.0f);
-            e.Init(manager, id, zone);
+            e.Init(manager, id, zone,true);
             GameObject temp = Instantiate(e.gameObject, father);
             Vector3 pos = RandomPoint();
             temp.transform.position = pos;
@@ -84,8 +84,6 @@ public class EnemysSpawner : NetworkBehaviour {
 
     public RoundStarter roundStarter;
 
-    //public Crate crateTarget;
-    //public Enemy enemyTarget;
 
     public SpawnZone[] cratesZones;
     public SpawnZone[] mobZones;
@@ -130,7 +128,7 @@ public class EnemysSpawner : NetworkBehaviour {
             for (int i = 0; i < cratesZones.Length; i++)
             {
                 if (cratesZones[i].Check())
-                    cratesZones[i].SpawnObject(transform, this, cratesZones[i].target, i);//crateTarget, i);
+                    cratesZones[i].SpawnObject(transform, this, cratesZones[i].target, i);
             }
         }
     }
@@ -142,7 +140,7 @@ public class EnemysSpawner : NetworkBehaviour {
             for (int i = 0; i < mobZones.Length; i++)
             {
                 if (mobZones[i].Check())
-                    mobZones[i].SpawnObject(transform, this, mobZones[i].target, i);//enemyTarget, i);
+                    mobZones[i].SpawnObject(transform, this, mobZones[i].target, i);
             }
         }
     }
@@ -156,14 +154,14 @@ public class EnemysSpawner : NetworkBehaviour {
             {
                 GameObject temp = Instantiate(objectsClientCrates[zone].gameObject, transform);
                 temp.transform.position = pos;
-                temp.GetComponent<SpawnableObject>().Init(this, id, zone);
+                temp.GetComponent<SpawnableObject>().Init(this, id, zone,false);
                 objectsClient.Add(temp.GetComponent<SpawnableObject>());
             }
             if(type == 2)
             {
                 GameObject temp = Instantiate(objectsClientMobs[zone].gameObject, transform);
                 temp.transform.position = pos;
-                temp.GetComponent<SpawnableObject>().Init(this, id, zone);
+                temp.GetComponent<SpawnableObject>().Init(this, id, zone,false);
                 objectsClient.Add(temp.GetComponent<SpawnableObject>());
             }
 
@@ -204,6 +202,10 @@ public class EnemysSpawner : NetworkBehaviour {
             catch { };
         }
     }
+    public void SendMovement(SpawnableObject obj,Vector3 pos, Quaternion rot,Vector3 toPos)
+    {
+        RpcSendMovement(obj.id, pos, rot, toPos);
+    }
 
     [ClientRpc]
     void RpcObjectHitted(int hp,int maxHp,float id)
@@ -231,6 +233,15 @@ public class EnemysSpawner : NetworkBehaviour {
             }
         }
 
+    }
+    [ClientRpc]
+    void RpcSendMovement(float id, Vector3 pos,Quaternion rot,Vector3 toPos)
+    {
+        foreach (var obj in objectsClient)
+            if (obj.id == id)
+            {
+                obj.SendMovement(pos, rot, toPos);
+            }
     }
 
 }

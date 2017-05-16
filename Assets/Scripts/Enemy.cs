@@ -25,7 +25,10 @@ public class Enemy : SpawnableObject
 
     void Start()
     {
-        StartCoroutine(GenerateRot());
+        if (server)
+        {
+            StartCoroutine(GenerateRot());
+        }
         anim = GetComponent<Animator>();
     }
     IEnumerator GenerateRot()
@@ -44,28 +47,39 @@ public class Enemy : SpawnableObject
         yield return new WaitForSeconds(1f);
         notYet = false;
     }
+
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0);
-
-        Vector3 toPos;
-
-        if (onPlayer)
+        if (server)
         {
-            toPos = (tempFollow.transform.position - transform.position).normalized;
+            Vector3 toPos;
 
-            Vector3 difference = tempFollow.transform.position - transform.position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            rotatingPoint.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+            if (onPlayer)
+            {
+                toPos = (tempFollow.transform.position - transform.position).normalized;
+
+                Vector3 difference = tempFollow.transform.position - transform.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                rotatingPoint.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+            }
+            else
+                toPos = (followPoint.transform.position - transform.position).normalized;
+
+            
+            transform.position += toPos * Time.deltaTime * speed / 100;
+
+            manager.SendMovement(this, transform.position, transform.rotation, toPos);
+
+            AnimateEntity(toPos.x, toPos.y);
         }
         else
-            toPos = (followPoint.transform.position - transform.position).normalized;
+        {
+            transform.position = posFromServer;
+            transform.rotation = rotFromServer;
 
-        transform.position += toPos * Time.deltaTime * speed/100;
-
-        //Debug.Log("X: " + toPos.x + "  Y: " + toPos.y);
-        //Animation : using toPos.x and toPos.y
-        AnimateEntity(toPos.x, toPos.y);
+            AnimateEntity(toPosFromServer.x, toPosFromServer.y);
+        }
 
     }
 

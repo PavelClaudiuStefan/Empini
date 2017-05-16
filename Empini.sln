@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empini", "Empini.csproj", "{EB4BFB9A-C543-388F-7896-DCD53AFE3A70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empini.CSharp", "Empini.CSharp.csproj", "{B2D394BF-B622-29E0-B935-81D79AEFD47F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empini.Editor", "Empini.Editor.csproj", "{C91EE1C4-3448-86E3-1D4F-91E654D66D38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empini.CSharp.Editor", "Empini.CSharp.Editor.csproj", "{007A5531-156E-21CE-05DF-65342E9194DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB4BFB9A-C543-388F-7896-DCD53AFE3A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB4BFB9A-C543-388F-7896-DCD53AFE3A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB4BFB9A-C543-388F-7896-DCD53AFE3A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB4BFB9A-C543-388F-7896-DCD53AFE3A70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C91EE1C4-3448-86E3-1D4F-91E654D66D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C91EE1C4-3448-86E3-1D4F-91E654D66D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C91EE1C4-3448-86E3-1D4F-91E654D66D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C91EE1C4-3448-86E3-1D4F-91E654D66D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2D394BF-B622-29E0-B935-81D79AEFD47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D394BF-B622-29E0-B935-81D79AEFD47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D394BF-B622-29E0-B935-81D79AEFD47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D394BF-B622-29E0-B935-81D79AEFD47F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007A5531-156E-21CE-05DF-65342E9194DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007A5531-156E-21CE-05DF-65342E9194DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007A5531-156E-21CE-05DF-65342E9194DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007A5531-156E-21CE-05DF-65342E9194DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

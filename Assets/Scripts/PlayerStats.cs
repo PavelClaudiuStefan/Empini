@@ -12,10 +12,11 @@ public class PlayerStats : NetworkBehaviour {
     public TextMesh hpBar;
     public TextMesh xpBar;
 
+    public int[] _xpNeeded;
     public int _healthIncreas = 10; // 10 hp per point
-    public int _maxPoints = 1000; // 6 points per stat
+    public int _maxPoints = 6; // 6 points per stat
 
-    private int currentPoints = 1000; // 10 momentan
+    private int currentPoints = 0;
 
     private int playerHp = 100;
     private float bulletSpeed = 5;
@@ -24,6 +25,7 @@ public class PlayerStats : NetworkBehaviour {
     private int healthRegen = 1; // 1 regen per second
     private int movementSpeed = 4;
     private int playerXp = 0;
+    private int playerLv = 0;
 
     private int[] pointsPerStats;
     private Dictionary<string, int> pointsPerStat;
@@ -76,8 +78,6 @@ public class PlayerStats : NetworkBehaviour {
 
             hpBar.text = playerHp.ToString();
 
-            if (isLocalPlayer)
-                EventManager.instance.Raise(new SetHpUiEvent(playerHp));
             if (toSend)
             {
                 if (isServer)
@@ -225,8 +225,6 @@ public class PlayerStats : NetworkBehaviour {
     {
         playerHp = value;
         hpBar.text = playerHp.ToString();
-        if (isLocalPlayer)
-            EventManager.instance.Raise(new SetHpUiEvent(playerHp));
 
         RpcPlayerHp(value);
     }
@@ -237,8 +235,6 @@ public class PlayerStats : NetworkBehaviour {
         {
             playerHp = value;
             hpBar.text = playerHp.ToString();
-            if (isLocalPlayer)
-                EventManager.instance.Raise(new SetHpUiEvent(playerHp));
         }
     }
 
@@ -341,6 +337,35 @@ public class PlayerStats : NetworkBehaviour {
     }
 
     #endregion
+
+    void Update()
+    {
+        if (isLocalPlayer)
+        {
+            EventManager.instance.Raise(new SetPoints(currentPoints));
+            EventManager.instance.Raise(new SetSets(new int[5] {
+                pointsPerStat["BulletSpeed"],
+                pointsPerStat["BulletDamage"],
+                pointsPerStat["MaxHealth"],
+                pointsPerStat["HealthRegen"],
+                pointsPerStat["MovementSpeed"]
+            }));
+
+            for (int i = 0; i < _xpNeeded.Length - 1; i++)
+            {
+                if (playerXp >= _xpNeeded[i] && playerXp < _xpNeeded[i + 1])
+                {
+                    EventManager.instance.Raise(new SetXpBar(_xpNeeded[i + 1], _xpNeeded[i], playerXp));
+                    if (i > playerLv)
+                    {
+                        playerLv++;
+                        CurrentPoints++;
+                    }
+                }
+            }
+            
+        }
+    }
 
     IEnumerator HealthTick()
     {
