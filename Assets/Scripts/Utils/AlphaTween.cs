@@ -2,21 +2,18 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine.UI;
-using TMPro;
 
 [ExecuteInEditMode]
 public class AlphaTween : BaseTween {
 	public float from = 0;
 	public float to = 1;
     private SpriteRenderer[] _sprites;
-    private TextMeshPro[] _texts;
     private Image[] _images;
     public bool DestroyAfter = false;
 
 	public void OnEnable() {
         _sprites = GetComponentsInChildren<SpriteRenderer>();
-        
-        _texts = GetComponentsInChildren<TextMeshPro>();
+
 
         _images = GetComponentsInChildren<Image>();
 	}
@@ -25,8 +22,7 @@ public class AlphaTween : BaseTween {
     {
         foreach (var sprite in _sprites.Where(sprite => sprite))
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, from * (1 - lerpFactor) + to * lerpFactor);
-        foreach (var text in _texts.Where(text => text))
-            text.color = new Color(text.color.r, text.color.g, text.color.b, from * (1 - lerpFactor) + to * lerpFactor);
+      
         foreach (var img in _images)
             img.color = new Color(img.color.r, img.color.g, img.color.b, from * (1 - lerpFactor) + to * lerpFactor);
     }
@@ -37,8 +33,7 @@ public class AlphaTween : BaseTween {
         base.Update();
         foreach (var sprite in _sprites.Where(sprite => sprite))
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, from * (1 - lerpFactor) + to * lerpFactor);
-        foreach (var text in _texts.Where(text => text))
-            text.color = new Color(text.color.r, text.color.g, text.color.b, from * (1 - lerpFactor) + to * lerpFactor);
+        
         foreach (var img in _images)
             img.color = new Color(img.color.r, img.color.g, img.color.b, from * (1 - lerpFactor) + to * lerpFactor);
 
@@ -46,8 +41,7 @@ public class AlphaTween : BaseTween {
         if (DestroyAfter && Mathf.Abs(lerpFactor - 1) < 0.01f) {
             foreach (var sprite in _sprites.Where(sprite => sprite))
                 sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, to);
-            foreach (var text in _texts.Where(text => text))
-                text.color = new Color(text.color.r, text.color.g, text.color.b, to);
+           
             Destroy(this);
         }
     }
