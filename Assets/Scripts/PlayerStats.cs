@@ -125,13 +125,21 @@ public class PlayerStats : NetworkBehaviour {
                 bulletDamage = value;
 
                 //Update the sprite and scale of the projectile depending on the bulletDamage value;
-                GetComponent<PlayerAttack>().updateProjectileSprite(bulletDamage);
+                GetComponent<PlayerAttack>().UpdateProjectileSprite(value);
                 Debug.Log("Bullet dmg: " + bulletDamage);
 
                 if (isServer)
+                {
                     RpcBulletDamage(value);
+                    GetComponent<PlayerAttack>().RpcUpdateProjectileSprite(value);
+                }
+                    
                 else
+                {
                     CmdBulletDamage(value);
+                    GetComponent<PlayerAttack>().CmdUpdateProjectileSprite(value);
+                }
+                    
             }
         }
     }
@@ -235,6 +243,12 @@ public class PlayerStats : NetworkBehaviour {
         {
             playerHp = value;
             hpBar.text = playerHp.ToString();
+            if (playerHp <= 0)
+            {
+                transform.position = GetComponent<PlayerNetworkIdentification>().startPos;
+                PlayerHp = 100;
+            }
+
         }
     }
 

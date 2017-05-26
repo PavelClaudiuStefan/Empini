@@ -100,9 +100,73 @@ public class PlayerAttack : NetworkBehaviour {
         }
     }
 
-    public void updateProjectileSprite(int tier)
+    public void UpdateProjectileSprite(int tier)
     {
         switch(tier)
+        {
+            case 5:
+                projectile = projectiles[0];
+                break;
+            case 6:
+                projectile = projectiles[1];
+                break;
+            case 7:
+                projectile = projectiles[2];
+                break;
+            case 8:
+                projectile = projectiles[3];
+                break;
+            case 9:
+                projectile = projectiles[4];
+                break;
+            case 10:
+                projectile = projectiles[5];
+                break;
+            case 11:
+                projectile = projectiles[6];
+                break;
+            default:
+                Debug.Log("BulletDamage out of bounds. Change the tiers in PlayerAttack.cs!");
+                break;
+        }
+    }
+
+    [Command]
+    public void CmdUpdateProjectileSprite(int tier)
+    {
+        switch (tier)
+        {
+            case 5:
+                projectile = projectiles[0];
+                break;
+            case 6:
+                projectile = projectiles[1];
+                break;
+            case 7:
+                projectile = projectiles[2];
+                break;
+            case 8:
+                projectile = projectiles[3];
+                break;
+            case 9:
+                projectile = projectiles[4];
+                break;
+            case 10:
+                projectile = projectiles[5];
+                break;
+            case 11:
+                projectile = projectiles[6];
+                break;
+            default:
+                Debug.Log("BulletDamage out of bounds. Change the tiers in PlayerAttack.cs!");
+                break;
+        }
+    }
+
+    [ClientRpc]
+    public void RpcUpdateProjectileSprite(int tier)
+    {
+        switch (tier)
         {
             case 5:
                 projectile = projectiles[0];

@@ -91,8 +91,17 @@
     <Compile Include="Assets\Scripts\ProjectileStats.cs" />
     <Compile Include="Assets\Scripts\RoundStarter.cs" />
     <Compile Include="Assets\Scripts\UiController.cs" />
+    <Compile Include="Assets\Scripts\Utils\AlphaTween.cs" />
+    <Compile Include="Assets\Scripts\Utils\BaseTween.cs" />
     <Compile Include="Assets\Scripts\Utils\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\LocalPositionTween.cs" />
+    <Compile Include="Assets\Scripts\Utils\PositionTween.cs" />
+    <Compile Include="Assets\Scripts\Utils\RotationTween.cs" />
+    <Compile Include="Assets\Scripts\Utils\ScaleTween.cs" />
+    <Compile Include="Assets\Scripts\Utils\UIPositionTween.cs" />
     <Compile Include="Assets\Scripts\Zone.cs" />
+    <Compile Include="Assets\SkillSet.cs" />
+    <Compile Include="Assets\TeamsHolder.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
