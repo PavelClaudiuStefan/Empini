@@ -13,12 +13,13 @@ public class Zone : MonoBehaviour {
 
 	void Start () {
         col = GetComponent<EdgeCollider2D>();
+        
+        minX = transform.position.x + col.points[0].x + 0.5f;
+        minY = transform.position.y + col.points[0].y + 0.5f;
 
-        minX = col.points[0].x + 0.5f;
-        minY = col.points[0].y + 0.5f;
-
-        maxY = col.points[2].y - 0.5f;
-        maxX = col.points[2].x - 0.5f;
+        maxY = transform.position.y + col.points[2].y - 0.5f;
+        maxX = transform.position.x + col.points[2].x - 0.5f;
+        Debug.Log(minX + " " + minY + " " + maxY + " " + maxX);
 
     }
 	
