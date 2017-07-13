@@ -1,2 +1,3 @@
 # Empini
-2D game
+
+MDS project - 2D game
